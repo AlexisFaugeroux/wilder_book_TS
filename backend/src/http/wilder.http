@@ -1,0 +1,35 @@
+POST http://localhost:5000/api/wilder
+Content-Type: application/json
+
+{
+      "name": "Paul",
+      "city": "Reims"
+}
+###
+GET http://localhost:5000/api/wilder
+Content-Type: application/json
+###
+PUT http://localhost:5000/api/wilder
+Content-Type: application/json
+
+{
+    "id": 11,
+    "newData": {
+        "name": "John"
+    }
+}
+###
+DELETE http://localhost:5000/api/wilder
+Content-Type: application/json
+
+{
+    "id": 11
+}
+###
+PUT http://localhost:5000/api/addSkill
+Content-Type: application/json
+
+{
+    "wilderName": "Bobby Doe",
+    "skillName": "PHP"
+}
