@@ -1,13 +1,16 @@
 import avatar from "../../assets/wilder-logo.png";
+import Skill, { ISkillProps } from "../Skill/Skill";
+
 import "./Wilder.css";
 
 export interface IWilderProps {
   id: number;
   name: string;
   city: string;
+  grades: ISkillProps[];
 }
 
-const Wilder = ({ name, city }: IWilderProps) => {
+const Wilder = ({ name, city, grades }: IWilderProps) => {
   return (
     <article className="card">
       <img src={avatar} alt="avatar" />
@@ -15,9 +18,13 @@ const Wilder = ({ name, city }: IWilderProps) => {
       <h4>{city}</h4>
       <p>Lorem Ipsum</p>
       <h4>Wild Skills</h4>
-      {/* <ul className={styles.skills}>
-                {skills.map((skill) => <Skill key={skill.title + Date.now()} skill={skill}/>)}
-            </ul> */}
+      <ul className="skills">
+        {grades
+          ? grades.map((grade) => (
+              <Skill key={Date.now()} skill={grade.skill} grade={grade.grade} />
+            ))
+          : null}
+      </ul>
       {/* <DeleteWilder id={id}/> */}
     </article>
   );

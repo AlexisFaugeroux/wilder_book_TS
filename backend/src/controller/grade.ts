@@ -12,7 +12,7 @@ const gradeController = {
         .getRepository(Wilder)
         .findOneBy({ name: req.body.wilder });
 
-      if (wilderFromDB === null) throw new Error("No wilder Found");
+      if (wilderFromDB === null) throw new Error("No wilder found");
 
       console.log("Wilder from DB", wilderFromDB);
 
@@ -20,7 +20,8 @@ const gradeController = {
         .getRepository(Skill)
         .findOneBy({ name: req.body.skill });
 
-      if (skillFromDB === null) throw new Error("No skill Found");
+      if (skillFromDB === null) throw new Error("No skill found");
+
       console.log("Skill from DB", skillFromDB);
 
       await dataSource.getRepository(Grade).save({

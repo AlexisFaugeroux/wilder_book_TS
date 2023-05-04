@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.addWilderForm {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+label {
+  margin-right: 5px;  
+  font-size: large;
+  font-weight: bold;
+  color: #F76C6C;
+}
+
+.input {
+    margin-right: 15px;  
+    font-size: 16px;
+    font-size: max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 1px solid;
+    border-radius: 4px;
+  }

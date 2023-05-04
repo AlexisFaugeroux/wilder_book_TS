@@ -35,5 +35,5 @@ export class Wilder {
   // skills: Skill[];
 
   @OneToMany(() => Grade, (grade) => grade.wilder)
-  public grade: Grade[];
+  public grades: Grade[];
 }

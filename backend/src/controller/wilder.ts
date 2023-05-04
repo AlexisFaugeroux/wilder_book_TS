@@ -2,8 +2,6 @@ import { Request, Response } from "express";
 
 import dataSource from "../utils";
 import { Wilder } from "../entity/Wilder";
-import { Skill } from "../entity/Skill";
-import { Grade } from "../entity/Grade";
 
 const wilderController = {
   create: async (req: Request, res: Response) => {
@@ -17,28 +15,17 @@ const wilderController = {
   },
   read: async (req: Request, res: Response) => {
     try {
-      const grades = await dataSource.getRepository(Grade).find();
-
-      const wilders = await dataSource.getRepository(Wilder).find();
-
-      const data = wilders.map((wilder) => {
-        const wilderGrades = grades.filter(
-          (grade) => grade.wilder.id === wilder.id
-        );
-
-        const wilderGradeLean = wilderGrades.map((el) => {
-          return { title: el.skill.name, votes: el.grade };
-        });
-        const result = {
-          ...wilder,
-          skills: wilderGradeLean,
-        };
-        return result;
+      const wilders = await dataSource.manager.find(Wilder, {
+        relations: {
+          grades: {
+            skill: true,
+          },
+        },
       });
-      res.send(data);
-    } catch (error) {
-      console.log(error);
-      res.send("Error while creating wilder");
+      res.send(wilders);
+    } catch (err) {
+      console.log(err);
+      res.send("Error while getting the wilders");
     }
   },
   update: async (req: Request, res: Response) => {
@@ -54,10 +41,6 @@ const wilderController = {
   },
   delete: async (req: Request, res: Response) => {
     try {
-      // await dataSource
-      // .getRepository(Grade)
-      // .delete({skillId: req.params.id});
-
       await dataSource
         .getRepository(Wilder)
         .delete(parseInt(req.params.id, 10));

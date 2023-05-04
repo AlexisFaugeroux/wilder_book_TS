@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
+import Header from "./components/Header/Header";
 import Wilder, { IWilderProps } from "./components/Wilder/Wilder";
+import AddWilder from "./components/AddWilder/AddWilder";
 
 function App() {
   const [wilders, setWilders] = useState<IWilderProps[]>([]);
@@ -18,10 +20,10 @@ function App() {
 
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <main className="container">
         <h2>Wilders</h2>
-        {/* <AddWilder /> */}
+        <AddWilder />
         <section className="card-row">
           {wilders.map((wilder) => {
             return (
@@ -30,7 +32,7 @@ function App() {
                 id={wilder.id}
                 name={wilder.name}
                 city={wilder.city}
-                // skills={wilder.skills}
+                grades={wilder.grades}
               />
             );
           })}

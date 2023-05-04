@@ -37,9 +37,9 @@ export class Grade {
   @Column()
   grade: number;
 
-  @ManyToOne(() => Skill, (skill) => skill.grade)
+  @ManyToOne(() => Skill, (skill) => skill.grades)
   public skill: Skill;
 
-  @ManyToOne(() => Wilder, (wilder) => wilder.grade)
+  @ManyToOne(() => Wilder, (wilder) => wilder.grades)
   public wilder: Wilder;
 }
