@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Wilder, { IWilderProps } from "./components/Wilder/Wilder";
 import AddWilder from "./components/AddWilder/AddWilder";
+import AddSkill from "./components/AddSkill/AddSkill";
 
 function App() {
   const [wilders, setWilders] = useState<IWilderProps[]>([]);
@@ -22,7 +23,10 @@ function App() {
       <Header />
       <main className="container">
         <h2>Wilders</h2>
+        <h3>Add Wilder</h3>
         <AddWilder />
+        <h3>Add Skill</h3>
+        <AddSkill />
         <section className="card-row">
           {wilders.map((wilder) => {
             return (

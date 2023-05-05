@@ -4,18 +4,19 @@
   box-sizing: border-box;
 }
 
-.addSkillForm {
+.updateWilderForm {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: baseline;
   margin-bottom: 10px;
 }
 
-label {
+.labelUpdateWilderForm {
   margin-right: 5px;
-  font-size: large;
-  font-weight: bold;
-  color: #f76c6c;
+  font-size: small;
+  font-weight: lighter;
+  color: black;
 }
 
 .input {

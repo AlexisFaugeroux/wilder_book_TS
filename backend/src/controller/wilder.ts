@@ -29,7 +29,14 @@ const wilderController = {
     }
   },
   update: async (req: Request, res: Response) => {
+    console.log(req.body);
     try {
+      if (!req.body.newData.name && !req.body.newData.city)
+        return res.json("Empty body");
+
+      if (!req.body.newData.name) delete req.body.newData.name;
+      if (!req.body.newData.city) delete req.body.newData.city;
+
       await dataSource
         .getRepository(Wilder)
         .update(req.body.id, req.body.newData);

@@ -1,6 +1,6 @@
 import avatar from "../../assets/wilder-logo.png";
-import AddSkill from "../AddSkill/AddSkill";
 import Skill, { ISkillProps } from "../Skill/Skill";
+import UpdateWilder from "../UpdateWilder/UpdateWilder";
 
 import "./Wilder.css";
 
@@ -11,7 +11,7 @@ export interface IWilderProps {
   grades: ISkillProps[];
 }
 
-const Wilder = ({ name, city, grades }: IWilderProps) => {
+const Wilder = ({ id, name, city, grades }: IWilderProps) => {
   return (
     <article className="card">
       <img src={avatar} alt="avatar" />
@@ -22,12 +22,16 @@ const Wilder = ({ name, city, grades }: IWilderProps) => {
       <ul className="skills">
         {grades
           ? grades.map((grade) => (
-              <Skill key={Date.now()} skill={grade.skill} grade={grade.grade} />
+              <Skill
+                key={grade.grade + Date.now()}
+                skill={grade.skill}
+                grade={grade.grade}
+              />
             ))
           : null}
       </ul>
-      <h4>Add Skill</h4>
-      <AddSkill wilder={name} />
+      <h4>Update Wilder Info</h4>
+      <UpdateWilder id={id} />
       {/* <DeleteWilder id={id}/> */}
     </article>
   );

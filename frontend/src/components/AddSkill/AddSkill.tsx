@@ -4,17 +4,13 @@ import axios from "axios";
 
 import { useForm } from "react-hook-form";
 
-interface IAddSkillProps {
-  wilder: string;
-}
-
 type FormData = {
   wilder: string;
   skill: string;
   grade: number;
 };
 
-const AddSkill = ({ wilder }: IAddSkillProps) => {
+const AddSkill = () => {
   const {
     handleSubmit,
     register,
@@ -35,7 +31,8 @@ const AddSkill = ({ wilder }: IAddSkillProps) => {
 
   return (
     <form className="addSkillForm" onSubmit={onSubmit}>
-      <input type="text" hidden value={wilder} {...register("wilder")}></input>
+      <label>Wilder:</label>
+      <input type="text" {...register("wilder")}></input>
 
       <label>Skill:</label>
       <input type="text" {...register("skill", { required: true })} />
