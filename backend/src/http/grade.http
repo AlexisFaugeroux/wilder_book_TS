@@ -4,7 +4,7 @@ POST http://localhost:5000/api/grade
 Content-Type: application/json
 
 {
-    "grade": 8,
-    "wilder": "Paul",
-    "skill": "Rust"
+    "grade": 6,
+    "wilder": "Ringo",
+    "skill": "PHP"
 }

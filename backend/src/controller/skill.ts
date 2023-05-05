@@ -6,6 +6,16 @@ import { Skill } from "../entity/Skill";
 const skillController = {
   create: async (req: Request, res: Response) => {
     try {
+      console.log("Passe par skill controller");
+
+      const skills: Skill[] = await dataSource.getRepository(Skill).find();
+
+      const isInDatabase: Skill[] = skills.filter(
+        (skill) => req.body.name === skill.name
+      );
+
+      if (isInDatabase.length > 0) return res.json("Skill already in database");
+
       await dataSource.getRepository(Skill).save(req.body);
       res.send("Created skill");
     } catch (error) {

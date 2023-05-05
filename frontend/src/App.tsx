@@ -12,7 +12,6 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const wilders = await axios.get("http://localhost:5000/api/wilder");
-      console.log(wilders.data);
       setWilders(wilders.data);
     };
     fetchData();

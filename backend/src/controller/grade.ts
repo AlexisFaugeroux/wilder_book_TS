@@ -8,13 +8,14 @@ import { Grade } from "../entity/Grade";
 const gradeController = {
   create: async (req: Request, res: Response) => {
     try {
+      console.log(req.body);
       const wilderFromDB = await dataSource
         .getRepository(Wilder)
         .findOneBy({ name: req.body.wilder });
 
       if (wilderFromDB === null) throw new Error("No wilder found");
 
-      console.log("Wilder from DB", wilderFromDB);
+      // console.log("Wilder from DB", wilderFromDB);
 
       const skillFromDB = await dataSource
         .getRepository(Skill)
@@ -22,7 +23,7 @@ const gradeController = {
 
       if (skillFromDB === null) throw new Error("No skill found");
 
-      console.log("Skill from DB", skillFromDB);
+      // console.log("Skill from DB", skillFromDB);
 
       await dataSource.getRepository(Grade).save({
         grade: req.body.grade,

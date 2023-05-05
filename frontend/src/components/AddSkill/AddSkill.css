@@ -4,18 +4,14 @@
   box-sizing: border-box;
 }
 
-.addWilderForm {
-  display: flex;
+.addSkillForm {
+  /* display: flex;
   justify-content: space-evenly;
-  align-items: baseline;
-  margin-bottom: 10px;
+  align-items: baseline; */
 }
 
-.addWilderLabel {
+label {
   margin-right: 5px;
-  font-size: large;
-  font-weight: bold;
-  color: #f76c6c;
 }
 
 .input {

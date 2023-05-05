@@ -19,17 +19,17 @@ const AddWilder = () => {
         });
       }}
     >
-      <label>Name:</label>
+      <label className="addWilderLabel">Name:</label>
       <input
-        className="input"
+        className="addWilderInput"
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <br />
-      <label>City:</label>
+      <label className="addWilderLabel">City:</label>
       <input
-        className="input"
+        className="addWilderInput"
         type="text"
         value={city}
         onChange={(e) => setCity(e.target.value)}
